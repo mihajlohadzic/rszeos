@@ -34,18 +34,37 @@ public class Formulagp {
                 
         c.readDrivers("vozaci.txt");
         c.readVenues("staze.txt");
+		
+		Collections.shuffle(c.getVenues());
+        List<Venue> selectedVenues = c.getVenues().subList(0, numberOfRaces);
+		
         c.prepareForTheRace();
-       // for(int i = 0; i < 10; i++){
-        c.checkMechanicalProblem();
-       // }
-       Venue venue = c.getVenues().get(4);
-        c.driveAverageLapTime(venue);
-        for(int i = 1; i <=numberOfRaces;i++){
-        c.printLeader(i);
-        c.printChampion(i);
+		for(int i = 0; i < numberOfRaces; i++){
+            
+            
+            System.out.println("\n======================================");
+            System.out.println("\n TRKA   " +(i+1));
+            Venue currentVenue = selectedVenues.get(i);
+            System.out.println("\nSTAZA " +currentVenue.getVenueName());
+            
+            c.assignStartingPositions(i);
+            c.assignTires();
+            
+            c.checkMechanicalProblem();
+            c.RainLap(currentVenue);
+            c.driveAverageLapTime(currentVenue);
+            c.applySpecialSkills(numberOfRaces);
+            c.assignPointsAfterVenue();
+            
+            c.printLeader(i+1);
+            c.printWinnersAfterRace(currentVenue.getVenueName());
+            
+            
+            System.out.println("=========================================");
         }
-        c.displayDrivers();
-        c.displayVenues();
+            System.out.println("\n****Konacan sampion ***");
+            c.printChampion(numberOfRaces);
+            System.out.println("*******************************************");
         
     }
 }

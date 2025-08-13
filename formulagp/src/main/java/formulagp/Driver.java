@@ -30,7 +30,11 @@ public String toString(){
 }
 public void setName(String name){
     this.name = name;
-}        
+}    
+
+public void addPoints(int points){
+    this.accumulatedPoints += points;
+}    
 
 public void setRanking(int ranking){
     this.ranking = ranking;
