@@ -1,0 +1,11 @@
+mihahami:miha123:student
+miha:miha123:student
+admin:admin123:admin
+marko:pass123:student
+
+
+Janko:janko123:student
+brane:brane:student
+miha:miha123:student
+mmm:mmm:student
+neso:neso:student
